@@ -1,1 +1,1 @@
-# IntegrateRigor-a-principled-framework-for-gene-selection-and-integration-optimization
+# IntegrateRigor: a principled framework for gene selection and integration optimization
