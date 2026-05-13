@@ -1,0 +1,24 @@
+Package: IntegrateRigor
+Title: Principled Gene Selection and Integration Optimization for Single-Cell Data
+Version: 0.0.1
+Authors@R: c( person("Zhiqian", "Zhai", role = c("aut", "cre"), email = "zhqzhai@g.ucla.edu"))
+Description: Tools for estimating batch-stable genes, scoring single-cell integration embeddings, and optimizing integration parameters for Seurat objects.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends:
+    R (>= 4.1.0)
+Imports:
+    Seurat,
+    SeuratObject,
+    mclust,
+    mvtnorm,
+    pbmcapply,
+    elbow,
+    rlang,
+    Matrix
+Suggests:
+    reticulate,
+    SeuratWrappers,
+    rliger
