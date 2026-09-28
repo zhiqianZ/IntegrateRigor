@@ -14,7 +14,7 @@ IntegrateRigor.ParameterS(
   ref.batch = NULL,
   use.prev.ref = TRUE,
   force.run = TRUE,
-  K = 5,
+  K = 10,
   n.cores = 5,
   seed = 42,
   return.all = TRUE,
@@ -22,8 +22,14 @@ IntegrateRigor.ParameterS(
   verbose = FALSE,
   subsample = NULL,
   run.optimal = TRUE,
-  default.assay = "RNA"
+  default.assay = "RNA",
+  method.args = list()
 )
+}
+\arguments{
+\item{method.args}{Named list of extra arguments passed unchanged to
+\code{method} for every parameter set, e.g.
+\code{list(group.by.vars = c("sample", "tech"))} for \code{Harmony}.}
 }
 \description{
 Search integration parameters using marginal integration scores

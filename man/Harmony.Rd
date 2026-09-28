@@ -2,10 +2,41 @@
 % Please edit documentation in R/integration_methods.R
 \name{Harmony}
 \alias{Harmony}
-\title{Harmony integration wrapper}
+\title{Harmony integration (harmony package)}
 \usage{
-Harmony(seurat.obj, new.reduction, ndims, default.assay, verbose = FALSE, ...)
+Harmony(
+  seurat.obj,
+  new.reduction,
+  ndims,
+  default.assay,
+  verbose = FALSE,
+  group.by.vars = batch,
+  batch = "batch",
+  project.dim = FALSE,
+  ...
+)
+}
+\arguments{
+\item{group.by.vars}{Metadata column(s) to correct for. Defaults to the
+\code{batch} column given to \code{\link[=Integration]{Integration()}} / \code{\link[=IntegrateRigor.ParameterS]{IntegrateRigor.ParameterS()}}.}
+
+\item{batch}{Supplied by \code{\link[=Integration]{Integration()}}; not normally set by the user.}
+
+\item{project.dim}{Passed to \code{RunHarmony()}. Defaults to \code{FALSE} because
+gene loadings are not needed for scoring and are slow on large data.}
 }
 \description{
-Harmony integration wrapper
+Runs Harmony through the harmony package's own Seurat method,
+\code{harmony::RunHarmony()} on the Seurat object, on the \code{"pca"} embedding from
+\code{\link[=Preprocess]{Preprocess()}}. Supports several covariates via \code{group.by.vars}; they enter
+Harmony as additive main effects (each with its own \code{theta}/\code{lambda}), not
+as their combination, so use a combined metadata column if you want one
+level per combination.
+}
+\details{
+Arguments in \code{...} are harmony's own (\code{theta}, \code{lambda}, \code{sigma},
+\code{nclust}, \code{max_iter}, \code{early_stop}, \code{dims.use}, \code{.options}, ...), and
+unset ones take harmony's defaults, which differ from Seurat's and between
+harmony versions. For Seurat's \code{HarmonyIntegration} settings use
+\code{\link[=Harmony_Seurat]{Harmony_Seurat()}}.
 }

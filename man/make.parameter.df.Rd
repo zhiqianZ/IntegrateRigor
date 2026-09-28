@@ -7,7 +7,11 @@
 make.parameter.df(...)
 }
 \arguments{
-\item{...}{Named vectors of parameter values.}
+\item{...}{Parameter values, ideally named (e.g. \code{theta = c(1, 2, 4)}).
+Unnamed arguments are named after the expression passed in. A
+vector-valued parameter (e.g. Harmony's \code{theta} with several covariates)
+is given as a list of vectors, e.g. \code{theta = list(c(2, 1), c(4, 2))},
+and becomes a list column in which each cell holds one whole vector.}
 }
 \value{
 A data.frame containing all parameter combinations.

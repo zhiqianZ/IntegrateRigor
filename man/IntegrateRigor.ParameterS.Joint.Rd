@@ -22,8 +22,13 @@ IntegrateRigor.ParameterS.Joint(
   verbose = FALSE,
   subsample = NULL,
   run.optimal = TRUE,
-  default.assay = "RNA"
+  default.assay = "RNA",
+  method.args = list()
 )
+}
+\arguments{
+\item{method.args}{Named list of extra arguments passed unchanged to
+\code{method} for every parameter set.}
 }
 \description{
 Search integration parameters using a joint multivariate GMM score
